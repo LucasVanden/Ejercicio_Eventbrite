@@ -9,7 +9,9 @@ namespace Ejercicio {
             RandomNumber a = new RandomNumber();
             string generado = a.GenerateRandomNumber();
             Comprobador comprobador = new Comprobador();
-            Console.WriteLine(generado);
+
+// en caso de querer ver el numero a adivinar
+   //         Console.WriteLine(generado);
 
 
 
@@ -27,10 +29,7 @@ namespace Ejercicio {
                     }
                     else break;
                 }
-
-              
              aciertos = comprobador.comprobarResulatado(generado,numeroIntentodeAdivinar);
-
             }
  //Parte 2
 
@@ -52,9 +51,7 @@ namespace Ejercicio {
 //calcular cifras acertadas
             for (int c = 0; c < 10; c++) {
                 test = c + "" + c + "" + c + "" + c;
-                Console.WriteLine(test);
-
-               
+                Console.WriteLine(test)
                aciertos = comprobador.comprobarResulatado(respuestaCorrecta, test);
                 
                 if (aciertos == 1) {
@@ -63,11 +60,9 @@ namespace Ejercicio {
                 }
                 if (posicion==4) 
                     break;
-                
             }
 //probar combinaciones
             String testOriginal = vec[0] + "" + vec[1] + "" + vec[2] + "" + vec[3];
-          //  int acietosAnterior = 0;
             Console.WriteLine(testOriginal);
             aciertos = comprobador.comprobarResulatado(respuestaCorrecta, testOriginal);
 
@@ -77,7 +72,7 @@ namespace Ejercicio {
 
 //rotar mientras aciertos sean 0
             vec.CopyTo(vec2, 0);
-            while (aciertos==0) {
+            while (aciertos<2) {
                 String temp = vec[0];
                 String temp1 = vec[1];
                 vec[0]= vec[3];
@@ -101,14 +96,12 @@ namespace Ejercicio {
                 aciertos = comprobador.comprobarResulatado(respuestaCorrecta, test);
                 if (aciertos == 0) {
                     vec2.CopyTo(vec, 0);
-                    
                     temp = vec[3];
                     vec[3] = vec[2];
                     vec[2] = temp;
                     test = vec[0] + "" + vec[1] + "" + vec[2] + "" + vec[3];
                     Console.WriteLine(test);
                     aciertos = comprobador.comprobarResulatado(respuestaCorrecta, test);
-
                 }
 //intercambio 1-2
                 vec2.CopyTo(vec, 0);
@@ -145,7 +138,6 @@ namespace Ejercicio {
                     aciertos = comprobador.comprobarResulatado(respuestaCorrecta, test);
                 }
             }
-                
-              
-        }    }
+        }
+    }
 }
